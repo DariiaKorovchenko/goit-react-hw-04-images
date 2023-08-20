@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import css from './ImageGalleryItem.module.css';
 import { Modal } from 'components/Modal/Modal';
 
-export function ImageGalleryItem(id, largeImage, description, preview) {
+export function ImageGalleryItem({ id, largeImage, description, preview }) {
   const [modalStatus, setModalStatus] = useState(false);
 
   const toggleModal = () => {
     setModalStatus(!modalStatus);
   };
+
+  console.log(id);
 
   return (
     <li className={css.ImageGalleryItem} id={id} onClick={() => toggleModal()}>
