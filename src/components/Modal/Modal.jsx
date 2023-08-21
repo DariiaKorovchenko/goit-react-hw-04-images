@@ -12,16 +12,16 @@ import css from './Modal.module.css';
 // );
 
 export function Modal({ toggleModal, children }) {
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeydownListener);
-  }, []);
-
   const handleKeydownListener = event => {
     if (event.code === 'Escape') {
       toggleModal();
       window.removeEventListener('keydown', handleKeydownListener);
     }
   };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeydownListener);
+  }, []);
 
   return (
     <div className={css.Overlay}>
