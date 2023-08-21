@@ -10,8 +10,6 @@ export function ImageGalleryItem({ id, largeImage, description, preview }) {
     setModalStatus(!modalStatus);
   };
 
-  console.log(id);
-
   return (
     <li className={css.ImageGalleryItem} id={id} onClick={() => toggleModal()}>
       <img
