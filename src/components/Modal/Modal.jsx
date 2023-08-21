@@ -1,15 +1,6 @@
-import { useEffect } from 'react';
-// import { createPortal } from 'react-dom';
+import React from 'react';
 import PropTypes from 'prop-types';
 import css from './Modal.module.css';
-
-// const modalRoot = document.querySelector('#modal-root');
-// return createPortal(
-//   <div className={css.Overlay}>
-//     <div className={css.Modal}>{children}</div>
-//   </div>,
-//   modalRoot
-// );
 
 export function Modal({ toggleModal, children }) {
   const handleKeydownListener = event => {
@@ -19,9 +10,7 @@ export function Modal({ toggleModal, children }) {
     }
   };
 
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeydownListener);
-  }, []);
+  window.addEventListener('keydown', handleKeydownListener);
 
   return (
     <div className={css.Overlay}>
