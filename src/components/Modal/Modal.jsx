@@ -1,16 +1,18 @@
-import React from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import css from './Modal.module.css';
 
 export function Modal({ toggleModal, children }) {
-  const handleKeydownListener = event => {
-    if (event.code === 'Escape') {
-      toggleModal();
-      window.removeEventListener('keydown', handleKeydownListener);
-    }
-  };
+  useEffect(() => {
+    const handleKeydownListener = event => {
+      if (event.code === 'Escape') {
+        toggleModal();
+        window.removeEventListener('keydown', handleKeydownListener);
+      }
+    };
 
-  window.addEventListener('keydown', handleKeydownListener);
+    window.addEventListener('keydown', handleKeydownListener);
+  }, [toggleModal]);
 
   return (
     <div className={css.Overlay}>
