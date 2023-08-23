@@ -7,11 +7,14 @@ export function Modal({ toggleModal, children }) {
     const handleKeydownListener = event => {
       if (event.code === 'Escape') {
         toggleModal();
-        window.removeEventListener('keydown', handleKeydownListener);
       }
     };
 
     window.addEventListener('keydown', handleKeydownListener);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeydownListener);
+    };
   }, [toggleModal]);
 
   return (
